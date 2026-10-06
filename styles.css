@@ -8,6 +8,7 @@
 /* Design tokens */
 :root {
     --bg: #ffffff;
+    --bg-secondary: #eff2f5;
     --text: #000000;
     --text-secondary: #4e90ec;
     --text-tertiary: #8a39ee;
@@ -160,7 +161,6 @@ section {
 .container .cards-cntr {
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
 }
 
 .container .cards-cntr .card {
@@ -170,8 +170,6 @@ section {
     border-radius: var(--card-radius);
     transform: translateY(0);
     transition: all 0.3s ease-in-out;
-    display: grid;
-    grid-template-rows: 2fr 1fr;
 }
 
 .container .cards-cntr .card:hover {
@@ -192,6 +190,7 @@ section {
 .schedule-cntr .schedule-wrapper .schedule-wrap-child-01 .schedule-cards {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     align-items: start;
     text-align: left;
 }
@@ -225,6 +224,28 @@ section {
     display: block;
 }
 
+.trainers-cntr {
+    width: 100%;
+    background: var(--bg-secondary);
+    display: flex;
+    justify-content: center;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+.trainers-cntr .trainers-wrapper {
+    width: 100%;
+}
+
+.trainers-cntr .cards-cntr {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.trainers-cntr .cards-cntr .card {
+    display: grid;
+    grid-template-rows: 2fr 1fr;
+}
+
 .trainers-cntr .cards-cntr .card img {
     width: 100%;
     height: auto;
@@ -246,4 +267,98 @@ section {
 
 .trainers-cntr .cards-cntr .card .trainer-field {
     font-size: large;
+}
+
+.member-tiers-cntr .cards-cntr {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.member-tiers-cntr .cards-cntr .card {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: start;
+}
+
+.member-tiers-cntr .cards-cntr .card h3 {
+    color: var(--text-tertiary);
+    font-size: larger;
+    font-weight: 500;
+}
+
+.member-tiers-cntr .cards-cntr .card ul {
+    text-indent: 10px;
+    list-style: none;
+}
+
+.member-tiers-cntr .cards-cntr .card .card-footer {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.member-tiers-cntr .cards-cntr .card .card-footer a {
+    text-decoration: none;
+    color: #ffffff;
+    background-color: var(--btn);
+    padding: var(--btn-padding);
+    border-radius: var(--btn-radius);
+}
+
+.member-tiers-cntr .cards-cntr .card .card-footer a:hover {
+    background-color: var(--btn-hover);
+}
+
+.member-tiers-cntr .cards-cntr .card .card-footer span {
+    font-size: larger;
+    color: var(--text-secondary);
+}
+
+.divider {
+    height: 2px;
+    width: 100%;
+    background: var(--card-border);
+}
+
+.footer {
+    background: var(--bg-secondary);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    margin-top: 30px;
+}
+
+.footer .footer-wrapper {
+    width: 100%;
+    max-width: var(--max-w);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.footer .footer-wrapper .footer-main-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.footer .footer-wrapper .footer-main-content ul {
+    list-style: none;
+    text-indent: 10px;
+}
+
+.footer .footer-wrapper .footer-main-content h2 {
+    color: var(--text-secondary);
+    font-size: var(--h2-size);
+}
+
+.footer .footer-wrapper .footer-main-content .footer-contacts a {
+    text-decoration: none;
+}
+
+.footer .footer-wrapper .footer-copy {
+    width: 100%;
+    text-align: center;
 }
