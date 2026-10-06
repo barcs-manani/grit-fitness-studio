@@ -1,0 +1,535 @@
+/* UPGRADED BY CLAUDE AI */
+
+
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&display=swap");
+
+/* Reset */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 16px;
+}
+
+/* Design tokens */
+:root {
+    --ink: #0d1422;
+    --ink-soft: #3b4658;
+    --bg: #ffffff;
+    --bg-secondary: #f1f4f9;
+    --blue: #2f6bff;
+    --blue-dark: #1b4fd6;
+    --violet: #6d3df2;
+    --ice: #c9dcff;
+    --line: #dde4ef;
+
+    --font-display: "Barlow Condensed", "Arial Narrow", system-ui, sans-serif;
+    --font-body: "Barlow", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+    --max-w: 1120px;
+    --gutter: clamp(20px, 5vw, 40px);
+    --section-gap: clamp(56px, 9vw, 96px);
+    --btn-radius: 999px;
+    --btn-padding: 14px 28px;
+    --card-radius: 14px;
+}
+
+/* Base */
+body {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: var(--font-body);
+    font-size: 17px;
+    line-height: 1.6;
+    background: var(--bg);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+    font-family: var(--font-display);
+    line-height: 1.05;
+    letter-spacing: 0.01em;
+}
+
+img {
+    max-width: 100%;
+}
+
+a:focus-visible {
+    outline: 3px solid var(--blue);
+    outline-offset: 3px;
+    border-radius: 6px;
+}
+
+/* ---------- Hero ---------- */
+.hero-cntr {
+    position: relative;
+    width: 100%;
+    min-height: min(88vh, 760px);
+    display: flex;
+    justify-content: center;
+    background-image:
+        linear-gradient(100deg, rgba(13, 20, 34, 0.88) 0%, rgba(13, 20, 34, 0.55) 55%, rgba(13, 20, 34, 0.25) 100%),
+        url(./assets/images/hero-img-01.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.hero-wrapper {
+    width: 100%;
+    max-width: var(--max-w);
+    padding: 28px var(--gutter) clamp(48px, 8vw, 88px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 48px;
+}
+
+.hero-nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+}
+
+.hero-nav .logo {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 44px;
+    letter-spacing: 0.06em;
+    line-height: 1;
+    color: #fff;
+}
+
+.hero-nav .logo .logo-i {
+    color: var(--ice);
+}
+
+.hero-nav-menu {
+    display: flex;
+    gap: clamp(16px, 3vw, 36px);
+    list-style: none;
+}
+
+.hero-nav-menu a {
+    position: relative;
+    padding: 6px 0;
+    color: rgba(255, 255, 255, 0.88);
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.hero-nav-menu a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--ice);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.25s ease;
+}
+
+.hero-nav-menu a:hover,
+.hero-nav-menu a:focus-visible {
+    color: #fff;
+}
+
+.hero-nav-menu a:hover::after,
+.hero-nav-menu a:focus-visible::after {
+    transform: scaleX(1);
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    max-width: 720px;
+}
+
+/* The acronym itself is the message: G R I T are the big letters */
+.hero-content h1 {
+    font-weight: 800;
+    font-size: clamp(44px, 9vw, 92px);
+    line-height: 0.98;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+.hero-content h1 span {
+    color: var(--ice);
+}
+
+.hero-content p {
+    font-size: clamp(18px, 2.6vw, 24px);
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.82);
+    max-width: 34ch;
+}
+
+.hero-btn,
+.hero-content a {
+    display: inline-block;
+    padding: var(--btn-padding);
+    background: var(--blue);
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: var(--btn-radius);
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.hero-btn:hover,
+.hero-content a:hover {
+    background: var(--blue-dark);
+    transform: translateY(-2px);
+}
+
+/* ---------- Sections ---------- */
+section {
+    margin-top: var(--section-gap);
+}
+
+.container {
+    width: 100%;
+    max-width: var(--max-w);
+    padding-inline: var(--gutter);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.container h2,
+.footer h2 {
+    font-weight: 700;
+    font-size: clamp(34px, 5vw, 48px);
+    color: var(--ink);
+}
+
+.container > p {
+    max-width: 62ch;
+    font-size: 18px;
+    color: var(--ink-soft);
+}
+
+.cards-cntr {
+    width: 100%;
+    display: grid;
+}
+
+.card {
+    border-radius: var(--card-radius);
+}
+
+/* ---------- Schedule ---------- */
+.schedule-wrapper {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    gap: clamp(24px, 5vw, 64px);
+    align-items: center;
+}
+
+.schedule-wrapper > * {
+    min-width: 0;
+}
+
+.schedule-wrap-child-01 {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.schedule-wrap-child-01 > p {
+    font-size: 18px;
+    color: var(--ink-soft);
+    max-width: 52ch;
+}
+
+.schedule-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.schedule-cards .card {
+    padding: 18px 22px;
+    background: var(--bg-secondary);
+    border-left: 4px solid var(--blue);
+    border-radius: 4px var(--card-radius) var(--card-radius) 4px;
+}
+
+.schedule-cards .card-title {
+    margin-bottom: 8px;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--violet);
+}
+
+.schedule-cards .card-content {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 22px;
+}
+
+.schedule-cards .card-content li {
+    font-weight: 500;
+}
+
+.schedule-wrap-child-02 img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+}
+
+/* ---------- Trainers ---------- */
+.trainers-cntr {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-block: var(--section-gap);
+    background: var(--bg-secondary);
+}
+
+.trainers-wrapper > p {
+    margin-bottom: 16px;
+}
+
+.trainer-cards {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+}
+
+.trainer-cards .card {
+    overflow: hidden;
+    background: #fff;
+    border: 1px solid var(--line);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.trainer-cards .card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 32px -16px rgba(13, 20, 34, 0.35);
+}
+
+.trainer-cards .card-img {
+    background: var(--ice);
+}
+
+.trainer-cards .trainer-img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+}
+
+.trainer-cards .card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 16px 18px 20px;
+}
+
+.trainer-name {
+    font-family: var(--font-display);
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1.1;
+}
+
+.trainer-field {
+    font-size: 15px;
+    color: var(--ink-soft);
+}
+
+/* ---------- Pricing ---------- */
+.membership-cards {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 12px;
+    align-items: stretch;
+}
+
+.membership-cards .card {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 28px 26px;
+    background: #fff;
+    border: 1px solid var(--line);
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.membership-cards .card:hover {
+    border-color: var(--blue);
+    box-shadow: 0 0 0 1px var(--blue);
+}
+
+/* Adult is the middle, most common plan: give it a stronger frame */
+.membership-cards .card:nth-child(2) {
+    border: 2px solid var(--blue);
+}
+
+.membership-cards .card-title {
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--violet);
+}
+
+.membership-cards .card-content {
+    flex: 1;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    color: var(--ink-soft);
+}
+
+.divider {
+    height: 1px;
+    width: 100%;
+    background: var(--line);
+}
+
+.card-footer {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+}
+
+.card-price {
+    font-family: var(--font-display);
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--ink);
+}
+
+.card-btn {
+    padding: 10px 22px;
+    background: var(--blue);
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: var(--btn-radius);
+    transition: background-color 0.2s ease;
+}
+
+.card-btn:hover {
+    background: var(--blue-dark);
+}
+
+/* ---------- Footer ---------- */
+.footer {
+    width: 100%;
+    margin-top: var(--section-gap);
+    display: flex;
+    justify-content: center;
+    padding: 56px var(--gutter) 28px;
+    background: var(--ink);
+    color: rgba(255, 255, 255, 0.78);
+}
+
+.footer-wrapper {
+    width: 100%;
+    max-width: var(--max-w);
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.footer-main-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+}
+
+.footer-main-content h2 {
+    margin-bottom: 14px;
+    font-size: 30px;
+    color: #fff;
+}
+
+.footer-main-content ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.footer-contact-item {
+    color: var(--ice);
+    text-decoration: none;
+}
+
+.footer-contact-item:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.footer-copy {
+    padding-top: 22px;
+    border-top: 1px solid rgba(255, 255, 255, 0.14);
+    text-align: center;
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.55);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+    .trainer-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .membership-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .schedule-wrapper {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    .hero-nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .footer-main-content {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 420px) {
+    .trainer-cards {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *, *::before, *::after {
+        transition: none !important;
+    }
+}
