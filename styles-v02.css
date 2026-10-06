@@ -101,6 +101,13 @@ a:focus-visible {
     gap: 16px;
 }
 
+.hero-nav .logo-cntr {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
+    align-items: end;
+}
+
 .hero-nav .logo {
     font-family: var(--font-display);
     font-weight: 800;
@@ -112,6 +119,14 @@ a:focus-visible {
 
 .hero-nav .logo .logo-i {
     color: var(--ice);
+}
+
+.hero-nav .logo-cntr .logo-text {
+    max-width: 8ch;
+    color: #fff;
+    text-transform: capitalize;
+    line-height: 1.00;
+    margin-bottom: 2px;
 }
 
 .hero-nav-menu {
