@@ -1,0 +1,249 @@
+/* Reset and box styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Design tokens */
+:root {
+    --bg: #ffffff;
+    --text: #000000;
+    --text-secondary: #4e90ec;
+    --text-tertiary: #8a39ee;
+    --hero-primary-txt: #ffffff;
+    --hero-secondary-txt: #c0d9e7;
+    --font-body: system-ui, -apple-system, "Segoe UI", sans serif;
+    --max-w: 1080px;
+    --btn: #84afec;
+    --btn-hover: #4e90ec;
+    --btn-radius: 999px;
+    --btn-padding: 12px 25px;
+    --h2-size: 28px;
+    --card-radius: 15px;
+    --card-border: #c0d9e7;
+    --card-border-hover: #4e90ec;
+}
+
+/* Base */
+body {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: var(--font-body);
+    background-color: var(--bg);
+    color: var(--text);
+}
+
+.hero-cntr {
+    width: 100%;
+    background-image: url(./assets/images/hero-img-01.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 500px;
+    display: flex;
+    justify-content: center;
+}
+
+.hero-wrapper {
+    width: 100%;
+    max-width: var(--max-w);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.hero-wrapper::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.25);
+    z-index: 0;
+    height: 500px;
+}
+
+.hero-wrapper > * {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-wrapper .hero-nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.hero-wrapper .hero-nav .logo {
+    color: var(--hero-primary-txt);
+    font-size: 45px;
+}
+
+.hero-wrapper .hero-nav .logo span {
+    color: var(--hero-secondary-txt);
+}
+
+.hero-wrapper .hero-nav ul {
+    display: flex;
+    justify-content: space-around;
+    gap: 30px;
+    list-style: none;
+}
+
+.hero-wrapper .hero-nav ul a{
+    text-decoration: none;
+    color: var(--hero-primary-txt);
+}
+
+.hero-wrapper .hero-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.hero-wrapper .hero-content h1 {
+    font-size: 20px;
+    color: var(--hero-primary-txt);
+}
+
+.hero-wrapper .hero-content h1 span{
+    color: var(--hero-secondary-txt);
+}
+
+.hero-wrapper .hero-content p {
+    font-size: 40px;
+    color: var(--hero-secondary-txt);
+}
+
+.hero-wrapper .hero-content a {
+    text-decoration: none;
+    padding: var(--btn-padding);
+    background-color: var(--btn);
+    color: var(--hero-primary-txt);
+    border-radius: var(--btn-radius);
+}
+
+.hero-wrapper .hero-content a:hover {
+    background-color: var(--btn-hover);
+}
+
+section {
+    margin-top: 30px;
+}
+
+.container {
+    width: 100%;
+    max-width: var(--max-w);
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 15px;
+}
+
+.container h2 {
+    color: var(--text-secondary);
+    font-size: var(--h2-size);
+}
+
+.container p {
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.container .cards-cntr {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.container .cards-cntr .card {
+    min-height: 200px;
+    border: 2px;
+    border-color: var(--card-border);
+    border-radius: var(--card-radius);
+    transform: translateY(0);
+    transition: all 0.3s ease-in-out;
+    display: grid;
+    grid-template-rows: 2fr 1fr;
+}
+
+.container .cards-cntr .card:hover {
+    border: 1px var(--card-border-hover);
+    transform: translateY(-8px);
+    box-shadow: inset #4e90ec;
+}
+
+.schedule-cntr .schedule-wrapper {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
+
+.schedule-cntr .schedule-wrapper > * {
+    min-width: 0;
+}
+
+.schedule-cntr .schedule-wrapper .schedule-wrap-child-01 .schedule-cards {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    text-align: left;
+}
+
+.schedule-cntr .schedule-wrapper .schedule-wrap-child-01 .schedule-cards .card {
+    height: fit-content;
+    min-height: fit-content;
+    margin-top: 20px;
+    margin-left: 20px;
+    border: 0px;
+    border-color: transparent;
+    overflow: visible;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.schedule-cards .card h3 {
+    font-weight: 500;
+    font-size: larger;
+    color: var(--text-tertiary);
+}
+
+.schedule-cards .card .card-content ul {
+    list-style: square;
+}
+
+.schedule-cntr .schedule-wrapper .schedule-wrap-child-02 img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.trainers-cntr .cards-cntr .card img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.trainers-cntr .cards-cntr .card .card-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    gap: 10px;
+}
+
+.trainers-cntr .cards-cntr .card .trainer-name {
+    font-size: larger;
+    font-weight: 500;
+}
+
+.trainers-cntr .cards-cntr .card .trainer-field {
+    font-size: large;
+}
